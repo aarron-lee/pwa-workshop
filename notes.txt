@@ -1,0 +1,26 @@
+await navigator.storage.estimate()
+- tells you available quota/space
+- up to 40% of disk space
+- vs localstorage has limit of 5mb-10mb
+
+activate for first time
+then it's activated, can have different behavior for active vs just activated state
+
+on a live page, you can do:
+document.designMode = "on"
+- lets you edit browser in real time
+
+Service worker lifecycle
+- trying to install
+- activated and running
+
+PWA
+- uses many features of the browser for to build an app
+e.g
+- push notifications
+- manifest for icons
+- service worker for network intercep
+- install offline
+
+https://newsapi.org/
+01742f7f346e4732a477709a06d7734a
