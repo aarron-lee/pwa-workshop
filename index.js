@@ -6,7 +6,7 @@ function getNews() {
   )
     .then(res => res.json())
     .then(news => {
-      console.log(news);
+      renderNews({ news: news.articles });
     });
 }
 
@@ -21,7 +21,7 @@ function renderCard({ title, imgLink, date }) {
     </div>`;
 }
 
-function render(news) {
+function renderNews({ news }) {
   const cols = document.getElementById('cardContainer');
 
   news.map(
@@ -29,7 +29,9 @@ function render(news) {
       (cols.innerHTML += renderCard({
         title: article.title,
         imgLink: article.urlToImage,
-        date: article.publishDate
+        date: article.publishedDate
       }))
   );
 }
+
+getNews();
