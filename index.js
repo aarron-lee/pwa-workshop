@@ -16,7 +16,7 @@ function renderCard({ title, imgLink, date }) {
       <img src="${imgLink}" alt="" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
-        <p class="card-text"><small class="text-muted>${date}</small></p>
+        <p class="card-text"><small class="text-muted">${date}</small></p>
       </div>
     </div>`;
 }
@@ -29,7 +29,7 @@ function renderNews({ news }) {
       (cols.innerHTML += renderCard({
         title: article.title,
         imgLink: article.urlToImage,
-        date: article.publishedDate
+        date: article.publishedAt
       }))
   );
 }
