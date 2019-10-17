@@ -38,3 +38,6 @@ const html = `
       <p class="card-text"><small class="text-muted>${date}</small></p>
     </div>
   </div>`;
+
+
+https://favicon.io/favicon-generator/
