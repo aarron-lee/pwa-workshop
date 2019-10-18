@@ -18,7 +18,7 @@ if (workbox) {
     })
   );
 
-  workbox.routing.registerRoute(/\.(?:js|css|html)$/, new workbox.strategies.NetworkFirst());
+  workbox.routing.registerRoute(/\.(?:js|css|html)$/, new workbox.strategies.CacheFirst());
 
-  workbox.routing.registerRoute(/\.(?:png|gif|jpg)$/, new workbox.strategies.NetworkFirst());
+  workbox.routing.registerRoute(/\.(?:png|gif|jpg)$/, new workbox.strategies.CacheFirst());
 }
