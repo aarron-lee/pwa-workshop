@@ -1,33 +1,24 @@
-console.log('I AM A SERVICE WORKER');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
 
-const CACHE_NAME = 'CACHE_NAME_V1';
+if (workbox) {
+  console.log('workbox is loaded');
 
-const CACHED_FILES = ['/', '/index.html', '/index.css', '/index.js'];
-
-self.addEventListener('install', function(event) {
-  console.log('SERVICE WORKER INSTALLED');
-  /* underneath the hood, cache.addAll caches the actual files */
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CACHED_FILES)));
-});
-
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      /* cache.match matches the url against the cache */
-      return cache.match(event.request).then(response => {
-        /* the response is undefined if it isn't in the cache
-         the || will fall back to the actual fetch event
-        */
-        return (
-          response ||
-          fetch(event.request).then(response => {
-            /* if the response was successful, then cache it with cache.put(key, value) */
-            if (response.status === 200) {
-              cache.put(event.request.url, response.clone());
-            }
-          })
-        );
-      });
+  workbox.routing.registerRoute(
+    /* regex to decide which requests to intercept */
+    new RegExp('^https://newsapi.org'),
+    new workbox.strategies.CacheFirst({
+      /* cache to check/save responses to*/
+      cacheName: 'api-cache',
+      /* note which responses are cacheable*/
+      plugins: [
+        new workbox.cacheableResponse.Plugin({
+          statuses: [0, 200]
+        })
+      ]
     })
   );
-});
+
+  workbox.routing.registerRoute(/\.(?:js|css|html)$/, new workbox.strategies.NetworkFirst());
+
+  workbox.routing.registerRoute(/\.(?:png|gif|jpg)$/, new workbox.strategies.NetworkFirst());
+}
