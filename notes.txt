@@ -49,3 +49,5 @@ if ('serviceWorker' in navigator) {
 }
 
 
+check off `update on reload` in Chrome Dev Tools under the `Application` tab
+- for service worker dev work
