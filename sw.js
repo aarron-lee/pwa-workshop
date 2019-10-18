@@ -17,6 +17,10 @@ if (workbox) {
       ]
     })
   );
+  workbox.routing.registerRoute(
+    'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js',
+    new workbox.strategies.CacheFirst()
+  );
 
   workbox.routing.registerRoute(/\.(?:js|css|html)$/, new workbox.strategies.CacheFirst());
 
