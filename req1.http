@@ -1,1 +1,0 @@
-GET https://newsapi.org/v2/everything?q=bitcoin&from=2019-09-17&sortBy=publishedAt&apiKey=3f519ed0127544559c348ae00b3ad4bf HTTP/1.1
