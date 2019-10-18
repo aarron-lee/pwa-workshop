@@ -1,3 +1,10 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+
+// rendering stuff
 function getNews() {
   const apiKey = '3f519ed0127544559c348ae00b3ad4bf';
 

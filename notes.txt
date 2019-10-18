@@ -41,3 +41,9 @@ const html = `
 
 
 https://favicon.io/favicon-generator/
+
+check if serviceworker
+
+if ('serviceWorker' in navigator) {
+  console.log('yes!');
+}
