@@ -1,11 +1,3 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('sw.js')
-      .then(reg => console.log('Service Worker has been registered successfully'));
-  });
-}
-
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', event => {
@@ -15,6 +7,14 @@ window.addEventListener('beforeinstallprompt', event => {
 const btnAdd = document.getElementById('btnAdd');
 
 btnAdd.addEventListener('click', () => deferredPrompt.prompt());
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('sw.js')
+      .then(reg => console.log('Service Worker has been registered successfully'));
+  });
+}
 
 // rendering stuff
 function getNews() {
