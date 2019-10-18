@@ -84,3 +84,5 @@ udacity
 
 url:
 whatwebcando.today
+
+use lighthouse audits to check PWA status, in chrome devtools
