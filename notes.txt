@@ -47,3 +47,5 @@ check if serviceworker
 if ('serviceWorker' in navigator) {
   console.log('yes!');
 }
+
+
