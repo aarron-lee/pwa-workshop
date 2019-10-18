@@ -62,3 +62,18 @@ for data, used IndexedDB
 
 
 WORKBOX - js library for PWA
+
+
+how to manually prompt to install PWA
+
+```
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', event => {
+  deferredPrompt = event;
+});
+
+const btnAdd = document.getElementById('btnAdd');
+
+btnAdd.addEventListener('click', () => deferredPrompt.prompt());
+```

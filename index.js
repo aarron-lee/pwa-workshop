@@ -6,6 +6,16 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', event => {
+  deferredPrompt = event;
+});
+
+const btnAdd = document.getElementById('btnAdd');
+
+btnAdd.addEventListener('click', () => deferredPrompt.prompt());
+
 // rendering stuff
 function getNews() {
   const apiKey = '3f519ed0127544559c348ae00b3ad4bf';
