@@ -13,6 +13,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.open(CACHE_NAME).then(cache => {
+      /* cache.match matches the url against the cache */
       return cache.match(event.request).then(response => {
         /* the response is undefined if it isn't in the cache
          the || will fall back to the actual fetch event
