@@ -57,6 +57,8 @@ check off `update on reload` in Chrome Dev Tools under the `Application` tab
 in sw.js, you need to add event listeners for events
 
 
-to store files, use:
-caches
+to store files, use caches
 for data, used IndexedDB
+
+
+WORKBOX - js library for PWA
