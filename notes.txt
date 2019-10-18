@@ -12,6 +12,7 @@ document.designMode = "on"
 
 Service worker lifecycle
 - trying to install
+  - install event only happens once
 - activated and running
 
 PWA
